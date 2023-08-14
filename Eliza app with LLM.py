@@ -10,7 +10,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 import openai
 
 # Configuração da chave da API OpenAI
-openai.api_key = 'YOUR_OPENAI_API_KEY'
+# openai.api_key = 'YOUR_OPENAI_API_KEY'
 
 # Crie e treine a instância de chatbot para ELIZA
 eliza_bot = ChatBot('Eliza', storage_adapter='chatterbot.storage.SQLStorageAdapter')
@@ -36,10 +36,4 @@ user_input = st.text_input("Digite sua mensagem:")
 if st.button("Responder"):
     response = combined_chatbot_response(user_input)
     st.write(response)
-
-
-# In[ ]:
-
-
-
 
