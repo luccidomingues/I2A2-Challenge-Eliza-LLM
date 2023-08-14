@@ -3,10 +3,8 @@
 
 # In[1]:
 
-pip install chatterbot
 
 import streamlit as st
-import chatterbot
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import openai
@@ -38,10 +36,4 @@ user_input = st.text_input("Digite sua mensagem:")
 if st.button("Responder"):
     response = combined_chatbot_response(user_input)
     st.write(response)
-
-
-# In[ ]:
-
-
-
 
