@@ -1,1 +1,1 @@
-chatterbot==1.1.0
+chatterbot==0.0.0
