@@ -3,6 +3,7 @@
 
 # In[1]:
 
+pip install streamlit chatterbot
 
 import streamlit as st
 import chatterbot
