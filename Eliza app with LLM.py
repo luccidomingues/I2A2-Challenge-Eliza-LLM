@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import streamlit as st
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -36,4 +30,3 @@ user_input = st.text_input("Digite sua mensagem:")
 if st.button("Responder"):
     response = combined_chatbot_response(user_input)
     st.write(response)
-
