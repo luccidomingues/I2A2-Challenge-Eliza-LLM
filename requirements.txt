@@ -1,2 +1,4 @@
+requests==2.18.4
+requests>=2.20
 eliza==1.0.3
 openai==0.27.2
