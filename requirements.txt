@@ -1,2 +1,2 @@
 eliza==1.0.3
-openai
+openai==0.27.2
