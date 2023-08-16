@@ -1,23 +1,22 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 import streamlit as st
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
 import openai
-import eliza
 
 # Configuração da chave da API OpenAI
 openai.api_key = 'YOUR_OPENAI_API_KEY'
 
-therapist = eliza.eliza()
+# Crie e treine a instância de chatbot para ELIZA
+eliza_bot = ChatBot('Eliza', storage_adapter='chatterbot.storage.SQLStorageAdapter')
+trainer = ChatterBotCorpusTrainer(eliza_bot)
+trainer.train('chatterbot.corpus.english')
 
 def get_gpt3_response(prompt):
     response = openai.Completion.create(engine="davinci", prompt=prompt, max_tokens=100)
     return response.choices[0].text.strip()
 
 def combined_chatbot_response(user_input):
-    eliza_response = therapist.respond(user_input)
+    eliza_response = eliza_bot.get_response(user_input).text
     
     # Se a resposta do ELIZA for muito genérica, consulte o GPT-3.
     if len(eliza_response.split()) <= 3:  # Este é um critério simplificado; você pode ajustar conforme necessário.
