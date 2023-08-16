@@ -1,5 +1,5 @@
 import streamlit as st
-import chatterbot
+import ChatterBot
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import openai
