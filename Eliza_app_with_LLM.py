@@ -1,7 +1,7 @@
 import streamlit as st
-import ChatterBot
-from ChatterBot import ChatBot
-from ChatterBot.trainers import ChatterBotCorpusTrainer
+import chatterbot
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
 import openai
 
 # Configuração da chave da API OpenAI
