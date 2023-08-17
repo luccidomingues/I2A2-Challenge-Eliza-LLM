@@ -1,12 +1,15 @@
 import streamlit as st
 import openai
 import pyElizaChatbotClient
-from pyElizaChatbotClient import Eliza
+# from pyElizaChatbotClient import Eliza
+from pyElizaChatbotClient.pyEliza import pyElizaChatbot
 
 # Configuração da chave da API OpenAI
 openai.api_key = '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'
 
-therapist = Eliza()
+# therapist = Eliza()
+therapist = pyElizaChatbot(name='Eliza', log_file='pyEliza.log')
+therapist.start()
 
 def get_gpt3_response(prompt):
     response = openai.Completion.create(engine="davinci", prompt=prompt, max_tokens=150)
