@@ -1,4 +1,3 @@
 ChatterBot>=0.5
-simple_eliza
 openai==0.27.8
 streamlit==1.25.0
