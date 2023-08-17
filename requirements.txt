@@ -1,4 +1,3 @@
-ChatterBot>=0.5
+pyElizaChatbotClient==0.1.6
 openai==0.27.8
 streamlit==1.25.0
-psychologist>=0.0
