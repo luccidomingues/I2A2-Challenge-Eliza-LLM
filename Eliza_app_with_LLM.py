@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import pyElizaChatbotClient
 # from pyElizaChatbotClient import Eliza
-from pyElizaChatbotClient import pyElizaChatbot
+from pyElizaChatbotClient.pyEliza import pyElizaChatbot
 
 # Configuração da chave da API OpenAI
 openai.api_key = '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'
