@@ -1,3 +1,33 @@
+import streamlit as st
+import openai
+from pyElizaChatbotClient import Eliza
+
+# Configuração da chave da API OpenAI
+openai.api_key = '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'
+
+therapist = Eliza()
+
+def get_gpt3_response(prompt):
+    response = openai.Completion.create(engine="davinci", prompt=prompt, max_tokens=150)
+    return response.choices[0].text.strip()
+
+def combined_chatbot_response(user_input):
+    eliza_response = therapist.respond(user_input)
+    
+    # Se a resposta do ELIZA for muito genérica, consulte o GPT-3.
+    if len(eliza_response.split()) <= 3:  # Este é um critério simplificado; você pode ajustar conforme necessário.
+        return get_gpt3_response(user_input)
+    else:
+        return eliza_response
+
+st.title("Chatbot Combinado ELIZA e GPT-3")
+
+user_input = st.text_input("Digite sua mensagem:")
+if st.button("Responder"):
+    response = combined_chatbot_response(user_input)
+    st.write(response)
+
+
 # import streamlit as st
 # import openai
 # from simple_eliza import Eliza
@@ -64,32 +94,32 @@
 #     st.write(response)
 
 
-import streamlit as st
-import openai
-from psychologist import Eliza
+# import streamlit as st
+# import openai
+# from psychologist import Eliza
 
-# Configuração da chave da API OpenAI
-openai.api_key = 'YOUR_OPENAI_API_KEY'
+# # Configuração da chave da API OpenAI
+# openai.api_key = 'YOUR_OPENAI_API_KEY'
 
-therapist = Eliza()
+# therapist = Eliza()
 
-def get_gpt3_response(prompt):
-    response = openai.Completion.create(engine="davinci", prompt=prompt, max_tokens=100)
-    return response.choices[0].text.strip()
+# def get_gpt3_response(prompt):
+#     response = openai.Completion.create(engine="davinci", prompt=prompt, max_tokens=100)
+#     return response.choices[0].text.strip()
 
-def combined_chatbot_response(user_input):
-    eliza_response = therapist.respond(user_input)
+# def combined_chatbot_response(user_input):
+#     eliza_response = therapist.respond(user_input)
     
-    # Se a resposta do ELIZA for muito genérica, consulte o GPT-3.
-    if len(eliza_response.split()) <= 3:  # Este é um critério simplificado; você pode ajustar conforme necessário.
-        return get_gpt3_response(user_input)
-    else:
-        return eliza_response
+#     # Se a resposta do ELIZA for muito genérica, consulte o GPT-3.
+#     if len(eliza_response.split()) <= 3:  # Este é um critério simplificado; você pode ajustar conforme necessário.
+#         return get_gpt3_response(user_input)
+#     else:
+#         return eliza_response
 
-st.title("Chatbot Combinado ELIZA e GPT-3")
+# st.title("Chatbot Combinado ELIZA e GPT-3")
 
-user_input = st.text_input("Digite sua mensagem:")
-if st.button("Responder"):
-    response = combined_chatbot_response(user_input)
-    st.write(response)
+# user_input = st.text_input("Digite sua mensagem:")
+# if st.button("Responder"):
+#     response = combined_chatbot_response(user_input)
+#     st.write(response)
 
